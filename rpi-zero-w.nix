@@ -1,23 +1,19 @@
 { config, lib, pkgs, ... }:
 
 {
-  boot = {
-    loader = {
-      grub.enable = false;
-      raspberryPi = {
-        enable = true;
-        version = 0;
-      };
-    };
+  # NixOS wants to enable GRUB by default
+  boot.loader.grub.enable = false;
+  # Enables the generation of /boot/extlinux/extlinux.conf
+  boot.loader.generic-extlinux-compatible.enable = true;
 
-    kernelPackages = pkgs.linuxPackages_rpi0;
-    consoleLogLevel = lib.mkDefault 7;
+  kernelPackages = pkgs.linuxPackages_rpi0;
+  consoleLogLevel = lib.mkDefault 7;
 
-    # prevent `modprobe: FATAL: Module ahci not found`
-    initrd.availableKernelModules = pkgs.lib.mkForce [
-      "mmc_block"
-    ];
-  };
+  # prevent `modprobe: FATAL: Module ahci not found`
+  initrd.availableKernelModules = pkgs.lib.mkForce [
+    "mmc_block"
+  ];
+};
 
   sdImage = {
     populateRootCommands = "";
