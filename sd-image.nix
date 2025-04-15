@@ -50,5 +50,5 @@
     '';
   };
 
-  system.stateVersion = "nixos-unstable";
+  system.stateVersion = "24.11";
 }
