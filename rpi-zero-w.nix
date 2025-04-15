@@ -5,8 +5,9 @@
   boot.loader.grub.enable = false;
   # Enables the generation of /boot/extlinux/extlinux.conf
   boot.loader.generic-extlinux-compatible.enable = true;
-
-  kernelPackages = pkgs.linuxPackages_rpi0;
+  # !!! If your board is a Raspberry Pi 1, select this:
+  # Source: https://nixos.wiki/wiki/NixOS_on_ARM#Installation
+  boot.kernelPackages = pkgs.linuxPackages_rpi;
 
   sdImage = {
     populateRootCommands = "";
