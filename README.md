@@ -6,7 +6,7 @@ Copy the files from the `template` directory to the root of the repository and e
 ## Building
 ```bash
 nix-build \
-    -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/9bc841f.tar.gz # nixos-unstable on 2022-03-23
+    -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/tags/24.11.tar.gz # nixos 24.11 on 2025-03-07
 ```
 
 ## Flashing
