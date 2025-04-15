@@ -7,7 +7,7 @@
   boot.loader.generic-extlinux-compatible.enable = true;
   # !!! If your board is a Raspberry Pi 1, select this:
   # Source: https://nixos.wiki/wiki/NixOS_on_ARM#Installation
-  boot.kernelPackages = pkgs.linuxPackages_rpi;
+  boot.kernelPackages = pkgs.linuxPackages_rpi0;
 
   sdImage = {
     populateRootCommands = "";
