@@ -7,7 +7,6 @@
   boot.loader.generic-extlinux-compatible.enable = true;
 
   kernelPackages = pkgs.linuxPackages_rpi0;
-  consoleLogLevel = lib.mkDefault 7;
 
   # prevent `modprobe: FATAL: Module ahci not found`
   initrd.availableKernelModules = pkgs.lib.mkForce [
