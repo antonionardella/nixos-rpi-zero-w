@@ -8,7 +8,12 @@
   # !!! If your board is a Raspberry Pi 1, select this:
   # Source: https://nixos.wiki/wiki/NixOS_on_ARM#Installation
   boot.kernelPackages = pkgs.linuxPackages_rpi0;
-
+    
+  # prevent `modprobe: FATAL: Module ahci not found`
+  initrd.availableKernelModules = pkgs.lib.mkForce [
+    "mmc_block"
+  ];
+  
   sdImage = {
     populateRootCommands = "";
     populateFirmwareCommands = with config.system.build; ''
