@@ -10,7 +10,7 @@
   boot.kernelPackages = pkgs.linuxPackages_rpi0;
     
   # prevent `modprobe: FATAL: Module ahci not found`
-  initrd.availableKernelModules = pkgs.lib.mkForce [
+  boot.initrd.availableKernelModules = pkgs.lib.mkForce [
     "mmc_block"
   ];
   
