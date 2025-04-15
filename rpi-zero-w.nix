@@ -8,11 +8,6 @@
 
   kernelPackages = pkgs.linuxPackages_rpi0;
 
-  # prevent `modprobe: FATAL: Module ahci not found`
-  initrd.availableKernelModules = pkgs.lib.mkForce [
-    "mmc_block"
-  ];
-
   sdImage = {
     populateRootCommands = "";
     populateFirmwareCommands = with config.system.build; ''
