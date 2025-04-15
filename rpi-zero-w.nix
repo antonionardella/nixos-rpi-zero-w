@@ -13,7 +13,6 @@
   initrd.availableKernelModules = pkgs.lib.mkForce [
     "mmc_block"
   ];
-};
 
   sdImage = {
     populateRootCommands = "";
