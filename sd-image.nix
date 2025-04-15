@@ -27,6 +27,16 @@
 
   networking.wireless.enable = true;
 
+  boot = {
+    loader.raspberryPi.firmwareConfig = ''
+      dtparam=i2c=on
+    '';
+    kernelModules = [
+      "i2c-dev"
+    ];
+  };
+  hardware.i2c.enable = true;
+
   users = {
     extraGroups = {
       gpio = {};
@@ -41,16 +51,14 @@
 
   services.openssh = {
     enable = true;
-    settings = {
-      PasswordAuthentication = true;
-    };
+    passwordAuthentication = true;
   };
-  
+
   services.udev = {
     extraRules = ''
       KERNEL=="gpiochip0*", GROUP="gpio", MODE="0660"
     '';
   };
 
-  system.stateVersion = "24.11";
+  system.stateVersion = "nixos-unstable";
 }
