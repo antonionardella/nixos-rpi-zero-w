@@ -41,9 +41,11 @@
 
   services.openssh = {
     enable = true;
-    passwordAuthentication = true;
+    settings = {
+      PasswordAuthentication = true;
+    };
   };
-
+  
   services.udev = {
     extraRules = ''
       KERNEL=="gpiochip0*", GROUP="gpio", MODE="0660"
