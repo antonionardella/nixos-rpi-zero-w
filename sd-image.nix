@@ -27,16 +27,6 @@
 
   networking.wireless.enable = true;
 
-  boot = {
-    loader.raspberryPi.firmwareConfig = ''
-      dtparam=i2c=on
-    '';
-    kernelModules = [
-      "i2c-dev"
-    ];
-  };
-  hardware.i2c.enable = true;
-
   users = {
     extraGroups = {
       gpio = {};
